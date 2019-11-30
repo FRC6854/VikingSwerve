@@ -1,0 +1,15 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "bin/": true,
+    ".classpath": false,
+    ".project": true
+  },
+  "wpilib.online": true,
+  "java.configuration.checkProjectSettingsExclusions": false
+}
