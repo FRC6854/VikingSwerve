@@ -15,7 +15,7 @@ The Quad Encoders are the encoders on the angle motor going through the [analog 
 | /frc/robot/subsystems/drivetrain/      | SwerveWheelController | Controls all of the Swerve Modules and does the calculations for swerve. It also hold the Gyro for FOC.                                          |
 | /frc/robot/subsystems/drivetrain/      | SwerveWheel           | This hold a Swerve Module. It sets the angle and also sets the speed using the SwerveWheelDrive.                                                 |
 | /frc/robot/subsystems/drivetrain/      | SwerveWheelConstants  | Hold the values needed for setting up swerve in your code base.                                                                                  |
-| /frc/team6854/controllers/             | SwerveWheelDrive      | Controls the speed of the Swerve Modules since we didn't have enough of each motor controller we had to make a class to control different types. |
+| /frc/team6854/controllers/             | SwerveWheelDrive      | Controls the speed of the Swerve Modules since we didn't have enough of each motor controller so we had to make a class to control different types of motor controllers. |
 | /frc/robot/output/commands/drivetrain/ | TeleopDrive           | The default command for swerve. It drives using ROC or FOC but always passes the Gyro angle just incase you need it for something else..         |
 
 ## Contributing
