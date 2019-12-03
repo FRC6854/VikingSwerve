@@ -15,15 +15,15 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
 
     private static SwerveWheelController instance = null;
 
-    private SwerveWheelDrive frontRightDrive = new SwerveWheelDrive(SwerveWheelDriveType.TalonSRX, frontRightDriveID, true);
-    private SwerveWheelDrive frontLeftDrive = new SwerveWheelDrive(SwerveWheelDriveType.VictorSPX, frontLeftDriveID, false);
-    private SwerveWheelDrive backRightDrive = new SwerveWheelDrive(SwerveWheelDriveType.VictorSPX, backRightDriveID, true);
-    private SwerveWheelDrive backLeftDrive = new SwerveWheelDrive(SwerveWheelDriveType.Spark, backLeftDriveID, false);
+    private SwerveWheelDrive frontRightDrive = null;
+    private SwerveWheelDrive frontLeftDrive = null;
+    private SwerveWheelDrive backRightDrive = null;
+    private SwerveWheelDrive backLeftDrive = null;
     
-    private SwerveWheel frontRight = new SwerveWheel(frontRightDrive, frontRightTurnTalonID, frontRightEncoderID, frontRightEncoderOffset, "Front Right");
-    private SwerveWheel frontLeft = new SwerveWheel(frontLeftDrive, frontLeftTurnTalonID, frontLeftEncoderID, frontLeftEncoderOffset, "Front Left");
-    private SwerveWheel backRight = new SwerveWheel(backRightDrive, backRightTurnTalonID, backRightEncoderID, backRightEncoderOffset, "Back Right");
-    private SwerveWheel backLeft = new SwerveWheel(backLeftDrive, backLeftTurnTalonID, backLeftEncoderID, backLeftEncoderOffset, "Back Left");
+    private SwerveWheel frontRight = null;
+    private SwerveWheel frontLeft = null;
+    private SwerveWheel backRight = null;
+    private SwerveWheel backLeft = null;
 
     private AHRS gyro;
 
@@ -34,6 +34,17 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
     private boolean gyroEnabled = false;
     
     private SwerveWheelController(){
+
+        frontRightDrive = new SwerveWheelDrive(SwerveWheelDriveType.TalonSRX, frontRightDriveID, true);
+        frontLeftDrive = new SwerveWheelDrive(SwerveWheelDriveType.VictorSPX, frontLeftDriveID, false);
+        backRightDrive = new SwerveWheelDrive(SwerveWheelDriveType.VictorSPX, backRightDriveID, true);
+        backLeftDrive = new SwerveWheelDrive(SwerveWheelDriveType.Spark, backLeftDriveID, false);
+
+        frontRight = new SwerveWheel(frontRightDrive, frontRightTurnTalonID, frontRightEncoderID, frontRightEncoderOffset, "Front Right");
+        frontLeft = new SwerveWheel(frontLeftDrive, frontLeftTurnTalonID, frontLeftEncoderID, frontLeftEncoderOffset, "Front Left");
+        backRight = new SwerveWheel(backRightDrive, backRightTurnTalonID, backRightEncoderID, backRightEncoderOffset, "Back Right");
+        backLeft = new SwerveWheel(backLeftDrive, backLeftTurnTalonID, backLeftEncoderID, backLeftEncoderOffset, "Back Left");
+
         try {
             gyro = new AHRS(SPI.Port.kMXP); 
             gyroEnabled = true;
@@ -84,6 +95,7 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
             double frontRightAngle = Math.atan2(b, d) * 180 / Math.PI;
             double frontLeftAngle = Math.atan2(b, c) * 180 / Math.PI ;
             // -------------------------------------
+            
 
             // -------------------------------------
             // This bit of code normalizes the speed
@@ -129,21 +141,14 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
         return gyro.getYaw();
     }
 
-    // Set the controller to be field centric
-    public void setFieldCentric(boolean value) {
+    // Set the controller to be field oriented drive
+    public void setFOD(boolean value) {
         isFieldCentric = value;
     }
 
-    public void zero() {
-        frontRight.setSetpoint(0);
-        frontLeft.setSetpoint(0);
-        backRight.setSetpoint(0);
-        backLeft.setSetpoint(0);
-
-        frontLeft.setSpeed(0);
-        frontRight.setSpeed(0);
-        backRight.setSpeed(0);
-        backLeft.setSpeed(0);
+    // Get the current FOD mode
+    public boolean getFOD() {
+        return isFieldCentric;
     }
 
     /**

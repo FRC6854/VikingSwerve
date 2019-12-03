@@ -3,6 +3,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import frc.robot.subsystems.drivetrain.SwerveWheelController;
+
 import frc.team6854.Controller;
 
 public class Robot extends TimedRobot {
@@ -16,6 +18,8 @@ public class Robot extends TimedRobot {
     System.out.println("--------------");
     System.out.println("Robot Init");
     System.out.println("--------------");
+
+    SwerveWheelController.getInstance();
   }
 
   @Override
