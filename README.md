@@ -4,7 +4,7 @@ Swerve drive is known as one of the most complicated drivetrains around and Viki
 
 ## Whats Included?
 
-Within this repository you will get the 2019 offseason `team6854` package and all of our swerve controllers. It has TalonSRX angle motor controllers with Quad Encoders and a mismatch of speed motor controllers (TalonSRX, VictorSPX and Spark).
+This project contains TalonSRX angle motor controllers with Quad Encoders and a mismatch of speed motor controllers (TalonSRX, VictorSPX and Spark). It also uses the [VIKING](https://github.com/FRC6854/VIKING) package which contains many wrappers and example motion profiling code. This also contains Field Oriented Drive.
 
 The Quad Encoders are the encoders on the angle motor going through the [analog breakout board](http://www.ctr-electronics.com/adaptors/talon-srx-analog-breakout-board.html#product_tabs_description_tabbed). We then declare in the code that they are Quad Encoders.
 

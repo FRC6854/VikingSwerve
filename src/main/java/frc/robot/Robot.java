@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
-import frc.team6854.Controller;
+import team6854.Controller;
 
 public class Robot extends TimedRobot {
 

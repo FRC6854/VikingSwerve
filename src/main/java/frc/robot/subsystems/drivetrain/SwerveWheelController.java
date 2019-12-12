@@ -6,8 +6,8 @@ import frc.robot.subsystems.drivetrain.SwerveWheel;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import frc.team6854.controllers.SwerveWheelDrive;
-import frc.team6854.controllers.SwerveWheelDrive.SwerveWheelDriveType;
+import team6854.controllers.SwerveWheelDrive;
+import team6854.controllers.SwerveWheelDrive.SwerveWheelDriveType;
 
 import com.kauailabs.navx.frc.AHRS;
 
