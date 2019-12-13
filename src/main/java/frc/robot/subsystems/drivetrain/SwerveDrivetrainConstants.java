@@ -7,7 +7,7 @@ public interface SwerveDrivetrainConstants {
 	public final double W = 23;
 
 	// PIDF Variables
-	public final double kP = 0.01;
+	public final double kP = 0.02;
 	public final double kI = 0.0;
 	public final double kD = 0.0;
 	public final double kF = 0.0;

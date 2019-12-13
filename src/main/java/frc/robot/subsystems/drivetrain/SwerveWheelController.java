@@ -25,7 +25,7 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
     private SwerveWheel backRight = null;
     private SwerveWheel backLeft = null;
 
-    private AHRS gyro;
+    private AHRS gyro = null;
 
     // Get distance between wheels
     private double r = Math.sqrt((L * L) + (W * W));
