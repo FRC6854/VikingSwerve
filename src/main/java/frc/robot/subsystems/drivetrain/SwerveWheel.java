@@ -7,7 +7,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
-import team6854.controllers.SwerveWheelDrive;
+import viking.controllers.SwerveWheelDrive;
 
 public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstants {
 
