@@ -102,7 +102,7 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
         steerMotor.set(ControlMode.PercentOutput, output);
     }
 
-    // This is needed, but it shouldn't be used due to the motors being controller via the SwerveWheelController
+    // This is needed, but it shouldn't be used due to the motors being controlled via the SwerveWheelController
     @Override
     protected void initDefaultCommand() {
     }
