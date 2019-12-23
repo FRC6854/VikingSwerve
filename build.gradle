@@ -50,7 +50,7 @@ dependencies {
     compile wpi.deps.vendor.java()
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
-    compile 'com.github.FRC6854:VIKING:1.12'
+    compile 'com.github.FRC6854:VIKING:1.13'
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
