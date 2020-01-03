@@ -4,14 +4,13 @@ import frc.robot.output.commands.drivetrain.TeleopDrive;
 import frc.robot.subsystems.drivetrain.SwerveWheel;
 
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import viking.controllers.SwerveWheelDrive;
 import viking.controllers.SwerveWheelDrive.SwerveWheelDriveType;
 
 import com.kauailabs.navx.frc.AHRS;
 
-public class SwerveWheelController extends Subsystem implements SwerveDrivetrainConstants {
+public class SwerveWheelController extends SubsystemBase implements SwerveDrivetrainConstants {
 
     private static SwerveWheelController instance = null;
 
@@ -54,6 +53,8 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
             System.out.println("--------------");
             gyroEnabled = false;
         }
+
+        setDefaultCommand(new TeleopDrive());
     }
 
     // x1 = strafe, y1 = speed, x2 = rotation 
@@ -160,12 +161,6 @@ public class SwerveWheelController extends Subsystem implements SwerveDrivetrain
         }
 
         return instance;
-    }
-
-    // Set the default command to be normal driving
-    @Override
-    protected void initDefaultCommand() {
-        setDefaultCommand(new TeleopDrive());
     }
 }
 

@@ -1,11 +1,10 @@
 package frc.robot.output.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.command.Command;
-
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
-public class TeleopDrive extends Command {
+public class TeleopDrive extends CommandBase {
 
     private SwerveWheelController swerve = null;
 
@@ -14,18 +13,18 @@ public class TeleopDrive extends Command {
     public TeleopDrive(){
         swerve = SwerveWheelController.getInstance();
 
-        requires(swerve);
+        addRequirements(swerve);
     }
 
     @Override
-    protected void initialize(){
+    public void initialize(){
         currentFOD = swerve.getFOD();
 
         swerve.resetGyro();
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         if (Robot.driver.getDriverAButtonPressed()) {
             swerve.resetGyro();
         }
@@ -36,19 +35,5 @@ public class TeleopDrive extends Command {
         }
 
         swerve.drive(Robot.driver.getDriverLeftStickX(), Robot.driver.getDriverLeftStickY(), Robot.driver.getDriverRightStickX(), swerve.gyroAngle());
-    }
-
-    @Override
-    protected boolean isFinished(){
-        return false;
-    }
-    
-    @Override
-    protected void end(){
-    }
-
-    @Override
-    protected void interrupted(){
-        end();
     }
 }

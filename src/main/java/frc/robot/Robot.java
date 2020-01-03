@@ -1,8 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Scheduler;
-
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
 import viking.Controller;
@@ -11,7 +10,7 @@ public class Robot extends TimedRobot {
 
   public static Controller driver = new Controller(0);
 
-  private static Scheduler scheduler = Scheduler.getInstance();
+  private static CommandScheduler scheduler = CommandScheduler.getInstance();
 
   @Override
   public void robotInit() {
