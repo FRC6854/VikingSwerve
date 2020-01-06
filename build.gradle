@@ -59,7 +59,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
-    compile 'com.github.FRC6854:VIKING:1.14.2'
+    compile 'com.github.FRC6854:VIKING:1.14.3'
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')

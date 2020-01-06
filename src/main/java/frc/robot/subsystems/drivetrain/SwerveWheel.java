@@ -43,6 +43,9 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
         // Set the input range of the PIDF so that it will only accept angles between -180 to 180 and set it to continuous
         getController().enableContinuousInput(-180, 180);
 
+        // Sets name for viewing in SmartDashboard
+        this.setName(name);
+
         // Start the PIDF controller
         this.enable();
     }
