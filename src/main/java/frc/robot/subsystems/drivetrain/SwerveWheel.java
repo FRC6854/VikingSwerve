@@ -20,7 +20,7 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
     private int countsWhenFrwd;
 
     public SwerveWheel(SwerveWheelDrive drive, int m_steer, int analogEnc, int zeroOffset, String name) {
-        super(new PIDController(kP, kI, kD, kF));
+        super(new PIDController(kP, kI, kD));
 
         this.name = name;
 
@@ -45,9 +45,6 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 
         // Sets name for viewing in SmartDashboard
         this.setName(name);
-
-        // Start the PIDF controller
-        this.enable();
     }
 
     // Get the current angle of the analog encoder
@@ -83,7 +80,7 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
     }
 
     @Override
-    public void useOutput(double output, double setpoint) {
+    protected void useOutput(double output, double setpoint) {
         steerMotor.set(ControlMode.PercentOutput, output);
     }
 }

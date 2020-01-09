@@ -7,9 +7,9 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "bin/": true,
-    ".classpath": false,
-    ".project": true
-  },
-  "wpilib.online": true,
-  "java.configuration.checkProjectSettingsExclusions": false
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  }
 }

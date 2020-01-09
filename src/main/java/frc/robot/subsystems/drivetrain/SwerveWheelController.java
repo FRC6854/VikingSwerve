@@ -54,7 +54,10 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
             gyroEnabled = false;
         }
 
-        setDefaultCommand(new TeleopDrive());
+        frontRight.enable();
+        frontLeft.enable();
+        backRight.enable();
+        backLeft.enable();
     }
 
     // x1 = strafe, y1 = speed, x2 = rotation 
@@ -158,6 +161,7 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
     public static SwerveWheelController getInstance() {
         if (instance == null) {
             instance = new SwerveWheelController();
+            instance.setDefaultCommand(new TeleopDrive());
         }
 
         return instance;
