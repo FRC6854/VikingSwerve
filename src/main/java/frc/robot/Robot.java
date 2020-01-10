@@ -1,9 +1,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.drivetrain.SwerveWheelController;
-
+import viking.ColorSensor;
 import viking.Controller;
 
 public class Robot extends TimedRobot {
@@ -12,6 +13,8 @@ public class Robot extends TimedRobot {
 
   private static CommandScheduler scheduler = CommandScheduler.getInstance();
 
+  private static ColorSensor sensor = new ColorSensor();
+
   @Override
   public void robotInit() {
     System.out.println("--------------");
@@ -19,6 +22,12 @@ public class Robot extends TimedRobot {
     System.out.println("--------------");
 
     SwerveWheelController.getInstance();
+  }
+
+  @Override
+  public void robotPeriodic() {
+    SmartDashboard.putString("Colour", sensor.getColor());
+    SmartDashboard.putNumber("Confidence", sensor.getColorConfidence());
   }
 
   @Override
