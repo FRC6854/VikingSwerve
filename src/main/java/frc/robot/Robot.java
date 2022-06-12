@@ -1,63 +1,56 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.drivetrain.SwerveWheelController;
-import viking.controllers.rev.ColorSensor;
 import viking.Controller;
 
 public class Robot extends TimedRobot {
 
-  public static Controller driver = new Controller(0);
+	public static Controller driver = new Controller(0);
 
-  private static CommandScheduler scheduler = CommandScheduler.getInstance();
+	private static CommandScheduler scheduler = CommandScheduler.getInstance();
 
-  private static ColorSensor sensor = new ColorSensor();
+	@Override
+	public void robotInit() {
+		System.out.println("--------------");
+		System.out.println("Robot Init");
+		System.out.println("--------------");
 
-  @Override
-  public void robotInit() {
-    System.out.println("--------------");
-    System.out.println("Robot Init");
-    System.out.println("--------------");
+		SwerveWheelController.getInstance();
+	}
 
-    SwerveWheelController.getInstance();
-  }
+	@Override
+	public void robotPeriodic() {}
 
-  @Override
-  public void robotPeriodic() {
-    SmartDashboard.putString("Colour", sensor.getColor());
-    SmartDashboard.putNumber("Confidence", sensor.getColorConfidence());
-  }
+	@Override
+	public void disabledInit() {
+		System.out.println("--------------");
+		System.out.println("Disabled");
+		System.out.println("--------------");
+	}
 
-  @Override
-  public void disabledInit() {
-    System.out.println("--------------");
-    System.out.println("Disabled");
-    System.out.println("--------------");
-  }
+	@Override
+	public void autonomousInit() {
+		System.out.println("--------------");
+		System.out.println("Autonomous");
+		System.out.println("--------------");
+	}
 
-  @Override
-  public void autonomousInit() {
-    System.out.println("--------------");
-    System.out.println("Autonomous");
-    System.out.println("--------------");
-  }
+	@Override
+	public void teleopInit() {
+		System.out.println("--------------");
+		System.out.println("Teleop");
+		System.out.println("--------------");
+	}
 
-  @Override
-  public void teleopInit() {
-    System.out.println("--------------");
-    System.out.println("Teleop");
-    System.out.println("--------------");
-  }
+	@Override
+	public void autonomousPeriodic() {
+		scheduler.run();
+	}
 
-  @Override
-  public void autonomousPeriodic() {
-    scheduler.run();
-  }
-
-  @Override
-  public void teleopPeriodic() {
-    scheduler.run();
-  }
+	@Override
+	public void teleopPeriodic() {
+		scheduler.run();
+	}
 }

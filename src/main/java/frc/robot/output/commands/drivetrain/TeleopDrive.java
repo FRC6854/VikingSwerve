@@ -6,34 +6,35 @@ import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
 public class TeleopDrive extends CommandBase {
 
-    private SwerveWheelController swerve = null;
+	private SwerveWheelController swerve = null;
 
-    private boolean currentFOD = false;
+	private boolean currentFOD = false;
 
-    public TeleopDrive(){
-        swerve = SwerveWheelController.getInstance();
+	public TeleopDrive() {
+		swerve = SwerveWheelController.getInstance();
 
-        addRequirements(swerve);
-    }
+		addRequirements(swerve);
+	}
 
-    @Override
-    public void initialize(){
-        currentFOD = swerve.getFOD();
+	@Override
+	public void initialize() {
+		currentFOD = swerve.getFOD();
 
-        swerve.resetGyro();
-    }
+		swerve.resetGyro();
+	}
 
-    @Override
-    public void execute() {
-        if (Robot.driver.getDriverAButtonPressed()) {
-            swerve.resetGyro();
-        }
+	@Override
+	public void execute() {
+		if (Robot.driver.getControllerAButtonPressed()) {
+			swerve.resetGyro();
+		}
 
-        if (Robot.driver.getDriverBButtonPressed()) {
-            currentFOD = !currentFOD;
-            swerve.setFOD(currentFOD);
-        }
+		if (Robot.driver.getControllerBButtonPressed()) {
+			currentFOD = !currentFOD;
+			swerve.setFOD(currentFOD);
+		}
 
-        swerve.drive(Robot.driver.getDriverLeftStickX(), Robot.driver.getDriverLeftStickY(), Robot.driver.getDriverRightStickX(), swerve.gyroAngle());
-    }
+		swerve.drive(Robot.driver.getControllerLeftStickX(), Robot.driver.getControllerLeftStickY(),
+					 Robot.driver.getControllerRightStickX(), swerve.gyroAngle());
+	}
 }
